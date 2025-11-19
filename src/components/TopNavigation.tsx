@@ -1,0 +1,60 @@
+import { Component, For } from "solid-js";
+import { panelState, PanelId } from "../state/panelState";
+import { useConfig } from "~/state/configStore";
+
+const PANELS: { id: PanelId; label: string }[] = [
+    { id: 'about', label: 'About' },
+    { id: 'blog', label: 'Blog' },
+    { id: 'edit', label: 'Edit' },
+
+    { id: 'media', label: 'Media' },
+    { id: 'contact', label: 'Contact' },
+    { id: 'terminal', label: 'Terminal' },
+    { id: 'projects', label: 'Projects' },
+];
+
+export const TopNavigation: Component = () => {
+    const { config, updateVisitor } = useConfig();
+    return (
+        <nav class="h-12 bg-background border-b border-border flex items-center justify-between px-6 select-none shrink-0">
+            <div class="flex items-center gap-2 text-sm font-mono overflow-x-auto no-scrollbar whitespace-nowrap">
+                <span class="text-accent font-bold">~/</span>
+                <For each={PANELS}>
+                    {(panel, index) => (
+                        <>
+                            <button
+                                onClick={() => panelState.setActivePanel(panel.id)}
+                                class={`hover:text-text-main transition-colors ${panelState.activePanel() === panel.id
+                                    ? "text-text-main font-bold"
+                                    : "text-text-muted"
+                                    }`}
+                            >
+                                {panel.label}
+                            </button>
+                            {index() < PANELS.length - 1 && (
+                                <span class="text-border-strong">/</span>
+                            )}
+                        </>
+                    )}
+                </For>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button
+                    onClick={() => {
+                        const themes: ('cyan' | 'purple' | 'orange' | 'white' | 'system')[] = ['cyan', 'purple', 'orange', 'white', 'system'];
+                        const current = config().theme;
+                        // Filter out 'dark' if it's not in our cycle list, or just handle it
+                        const currentIndex = themes.indexOf(current as any);
+                        const next = themes[(currentIndex + 1) % themes.length];
+                        updateVisitor(prev => ({ ...prev, theme: next }));
+                    }}
+                    class="text-xs font-mono text-text-muted hover:text-text-main transition-colors uppercase"
+                    title={`Current theme: ${config().theme}`}
+                >
+                    [{config().theme}]
+                </button>
+            </div>
+        </nav>
+    );
+};

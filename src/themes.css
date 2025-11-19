@@ -1,0 +1,267 @@
+:root {
+    /* --- Background Layers --- */
+    --bg-0: #0e0f10;
+    --bg-1: #1d1f21;
+    --bg-2: #2d2f31;
+
+    /* --- Text Layers --- */
+    --text-hi: #f3f4f6;
+    /* gray-100 */
+    --text-md: #d1d5db;
+    /* gray-300 */
+    --text-lo: #9ca3af;
+    /* gray-400 */
+    --text-invert: #111827;
+    /* gray-900 */
+
+    /* --- Border Layers --- */
+    --border: #374151;
+    /* gray-700 */
+    --border-strong: #4b5563;
+    /* gray-600 */
+    --border-accent: var(--accent);
+
+    /* --- Accent Layers --- */
+    --accent: #00e5ff;
+    /* cyan-400 */
+    --accent-muted: #0891b2;
+    /* cyan-600 */
+    --accent-bg: rgba(0, 229, 255, 0.1);
+    --accent-glow: 0 0 10px rgba(0, 229, 255, 0.5);
+
+    /* --- State Layers --- */
+    --hover: rgba(255, 255, 255, 0.05);
+    --active: rgba(255, 255, 255, 0.1);
+    --focus: var(--accent);
+    --disabled: #4b5563;
+    /* gray-600 */
+
+    /* --- Selection Layers --- */
+    --selection-bg: rgba(0, 229, 255, 0.2);
+    --selection-border: var(--accent);
+
+    /* --- Highlight / Code Layers --- */
+    --code-bg: #111827;
+    /* gray-900 */
+    --code-border: #374151;
+    /* gray-700 */
+    --code-highlight: #fbbf24;
+    /* amber-400 */
+
+    /* --- Shadows --- */
+    --shadow-0: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-1: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    /* --- Semantic Colors --- */
+    --success: #22c55e;
+    /* green-500 */
+    --warning: #f59e0b;
+    /* amber-500 */
+    --error: #ef4444;
+    /* red-500 */
+}
+
+/* --- Theme: Cyan (Default) --- */
+.theme-cyan {
+    /* Backgrounds */
+    --bg-0: #0e0f10;
+    --bg-1: #1d1f21;
+    --bg-2: #2d2f31;
+
+    /* Text */
+    --text-hi: #f3f4f6;
+    --text-md: #d1d5db;
+    --text-lo: #9ca3af;
+    --text-invert: #111827;
+
+    /* Borders */
+    --border: #374151;
+    --border-strong: #4b5563;
+    --border-accent: #00e5ff;
+
+    /* Accents */
+    --accent: #00e5ff;
+    --accent-muted: #0891b2;
+    --accent-bg: rgba(0, 229, 255, 0.1);
+    --accent-glow: 0 0 10px rgba(0, 229, 255, 0.5);
+
+    /* States */
+    --hover: rgba(255, 255, 255, 0.05);
+    --active: rgba(255, 255, 255, 0.1);
+    --focus: #00e5ff;
+    --disabled: #4b5563;
+
+    /* Selection */
+    --selection-bg: rgba(0, 229, 255, 0.2);
+    --selection-border: #00e5ff;
+
+    /* Code */
+    --code-bg: #111827;
+    --code-border: #374151;
+    --code-highlight: #fbbf24;
+}
+
+/* --- Theme: Purple --- */
+.theme-purple {
+    /* Backgrounds */
+    --bg-0: #0e0f10;
+    --bg-1: #1d1f21;
+    --bg-2: #2d2f31;
+
+    /* Text */
+    --text-hi: #f3f4f6;
+    --text-md: #d1d5db;
+    --text-lo: #9ca3af;
+    --text-invert: #111827;
+
+    /* Borders */
+    --border: #374151;
+    --border-strong: #4b5563;
+    --border-accent: #d946ef;
+
+    /* Accents */
+    --accent: #d946ef;
+    --accent-muted: #a21caf;
+    --accent-bg: rgba(217, 70, 239, 0.1);
+    --accent-glow: 0 0 10px rgba(217, 70, 239, 0.5);
+
+    /* States */
+    --hover: rgba(255, 255, 255, 0.05);
+    --active: rgba(255, 255, 255, 0.1);
+    --focus: #d946ef;
+    --disabled: #4b5563;
+
+    /* Selection */
+    --selection-bg: rgba(217, 70, 239, 0.2);
+    --selection-border: #d946ef;
+
+    /* Code */
+    --code-bg: #111827;
+    --code-border: #374151;
+    --code-highlight: #fbbf24;
+}
+
+/* --- Theme: Orange --- */
+.theme-orange {
+    /* Backgrounds */
+    --bg-0: #0e0f10;
+    --bg-1: #1d1f21;
+    --bg-2: #2d2f31;
+
+    /* Text */
+    --text-hi: #f3f4f6;
+    --text-md: #d1d5db;
+    --text-lo: #9ca3af;
+    --text-invert: #111827;
+
+    /* Borders */
+    --border: #374151;
+    --border-strong: #4b5563;
+    --border-accent: #f97316;
+
+    /* Accents */
+    --accent: #f97316;
+    --accent-muted: #c2410c;
+    --accent-bg: rgba(249, 115, 22, 0.1);
+    --accent-glow: 0 0 10px rgba(249, 115, 22, 0.5);
+
+    /* States */
+    --hover: rgba(255, 255, 255, 0.05);
+    --active: rgba(255, 255, 255, 0.1);
+    --focus: #f97316;
+    --disabled: #4b5563;
+
+    /* Selection */
+    --selection-bg: rgba(249, 115, 22, 0.2);
+    --selection-border: #f97316;
+
+    /* Code */
+    --code-bg: #111827;
+    --code-border: #374151;
+    --code-highlight: #fbbf24;
+}
+
+/* --- Theme: Dark (Same as Default/Cyan) --- */
+.theme-dark {
+    --bg-0: #0e0f10;
+    --bg-1: #1d1f21;
+    --bg-2: #2d2f31;
+
+    --text-hi: #f3f4f6;
+    --text-md: #d1d5db;
+    --text-lo: #9ca3af;
+    --text-invert: #111827;
+
+    --border: #374151;
+    --border-strong: #4b5563;
+    --border-accent: #00e5ff;
+
+    --accent: #00e5ff;
+    --accent-muted: #0891b2;
+    --accent-bg: rgba(0, 229, 255, 0.1);
+    --accent-glow: 0 0 10px rgba(0, 229, 255, 0.5);
+
+    --hover: rgba(255, 255, 255, 0.05);
+    --active: rgba(255, 255, 255, 0.1);
+    --focus: #00e5ff;
+    --disabled: #4b5563;
+
+    --selection-bg: rgba(0, 229, 255, 0.2);
+    --selection-border: #00e5ff;
+
+    --code-bg: #111827;
+    --code-border: #374151;
+    --code-highlight: #fbbf24;
+}
+
+/* --- Theme: White (Light Mode) --- */
+.theme-white {
+    /* Backgrounds - Warm, soft tones instead of harsh white */
+    --bg-0: #f8f7f4;
+    /* Warm off-white */
+    --bg-1: #f0ede7;
+    /* Soft beige */
+    --bg-2: #e8e4dc;
+    /* Light warm gray */
+
+    /* Text - Softer blacks and grays */
+    --text-hi: #2d2a26;
+    /* Warm dark gray instead of pure black */
+    --text-md: #5a5550;
+    /* Medium warm gray */
+    --text-lo: #8a857f;
+    /* Light warm gray */
+    --text-invert: #f8f7f4;
+
+    /* Borders - Subtle warm tones */
+    --border: #ddd9d1;
+    /* Soft warm border */
+    --border-strong: #c9c4bc;
+    /* Stronger warm border */
+    --border-accent: #6b5d4f;
+    /* Warm brown accent */
+
+    /* Accents - Warm brown/taupe instead of harsh black */
+    --accent: #6b5d4f;
+    /* Warm brown */
+    --accent-muted: #8a7d6f;
+    /* Lighter warm brown */
+    --accent-bg: rgba(107, 93, 79, 0.08);
+    --accent-glow: 0 0 10px rgba(107, 93, 79, 0.15);
+
+    /* States */
+    --hover: rgba(107, 93, 79, 0.06);
+    --active: rgba(107, 93, 79, 0.12);
+    --focus: #6b5d4f;
+    --disabled: #c9c4bc;
+
+    /* Selection */
+    --selection-bg: rgba(107, 93, 79, 0.15);
+    --selection-border: #6b5d4f;
+
+    /* Code */
+    --code-bg: #f0ede7;
+    --code-border: #ddd9d1;
+    --code-highlight: #b8860b;
+    /* Dark goldenrod for code highlights */
+}
