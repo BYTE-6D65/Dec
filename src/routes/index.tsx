@@ -1,10 +1,10 @@
 import { PanelContainer } from "~/components/PanelContainer";
+import { Suspense } from "solid-js";
 import { AboutPanel } from "~/apps/about/AboutPanel";
 import { ProjectsPanel } from "~/apps/projects/ProjectsPanel";
 import { BlogPanel } from "~/apps/blog/BlogPanel";
 import { MediaPanel } from "~/apps/media/MediaPanel";
 import { ContactPanel } from "~/apps/contact/ContactPanel";
-
 import { EditPanel } from "~/apps/edit/EditPanel";
 import { clientOnly } from "@solidjs/start";
 
@@ -20,10 +20,14 @@ export default function Home() {
         <ProjectsPanel />
       </PanelContainer>
       <PanelContainer id="blog" title="Blog" noPadding>
-        <BlogPanel />
+        <Suspense fallback={<div class="p-8">Loading Blog...</div>}>
+          <BlogPanel />
+        </Suspense>
       </PanelContainer>
       <PanelContainer id="edit" title="Edit" noPadding>
-        <EditPanel />
+        <Suspense fallback={<div class="p-8">Loading Editor...</div>}>
+          <EditPanel />
+        </Suspense>
       </PanelContainer>
       <PanelContainer id="media" title="Media">
         <MediaPanel />
