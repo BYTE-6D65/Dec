@@ -14,8 +14,6 @@ DECK is a philosophy and framework for **embodied computing**—systems that liv
 - **Workspace isolation** – Multiple states (work, travel, focus) as first-class primitives
 - **The right to fail and rebuild** – Systems that respect you enough not to pretend perfection
 
-DECK rethinks the filesystem hierarchy to be human-centered, with clean namespaces (`/deck`, `/pillar`) instead of legacy Unix sprawl. It emphasizes use over surveillance, locality over cloud dependency, and refusal over compliance.
-
 ## What is Dec?
 
 Dec brings DECK principles to the web:
@@ -146,7 +144,4 @@ MIT – See [LICENSE](LICENSE)
 - [SolidJS Documentation](https://solidjs.com)
 - [Auth.js Documentation](https://authjs.dev)
 
----
 
-*"Everything is false until it proves useful."*
-~ Zephyr
