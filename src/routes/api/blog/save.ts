@@ -1,9 +1,15 @@
 import { APIEvent } from "@solidjs/start/server";
+import { requireAdmin } from "~/lib/auth-utils";
 
 export async function POST({ request }: APIEvent) {
     try {
+        // Require admin authentication
+        const currentUser = await requireAdmin(request);
+
+        console.log('[BLOG SAVE] Admin user attempting to save:', currentUser.id);
+
         // Dynamically import DB queries to prevent build-time bundling of native modules
-        const { createPost, updatePost, getUserByHandle } = await import("~/db/queries");
+        const { createPost, updatePost } = await import("~/db/queries");
 
         const body = await request.json();
         const { id, title, date, preview, slug, content } = body;
@@ -13,12 +19,6 @@ export async function POST({ request }: APIEvent) {
                 status: 400,
                 headers: { 'Content-Type': 'application/json' }
             });
-        }
-
-        // Ensure admin user exists for authorship (temporary until real auth)
-        const adminUser = await getUserByHandle("byte");
-        if (!adminUser) {
-            throw new Error("Admin user not found");
         }
 
         let savedPost;
@@ -33,7 +33,7 @@ export async function POST({ request }: APIEvent) {
         } else {
             // Create new post
             savedPost = await createPost(
-                adminUser.id,
+                currentUser.id, // Use authenticated user's ID
                 title,
                 slug || title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
                 content,

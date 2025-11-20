@@ -1,6 +1,7 @@
 import { Component, For } from "solid-js";
 import { panelState, PanelId } from "../state/panelState";
 import { useConfig } from "~/state/configStore";
+import { UserProfile } from "~/components/UserProfile";
 
 const PANELS: { id: PanelId; label: string }[] = [
     { id: 'about', label: 'About' },
@@ -40,6 +41,7 @@ export const TopNavigation: Component = () => {
             </div>
 
             <div class="flex items-center gap-4">
+                <UserProfile />
                 <button
                     onClick={() => {
                         const themes: ('cyan' | 'purple' | 'orange' | 'white' | 'system')[] = ['cyan', 'purple', 'orange', 'white', 'system'];
@@ -49,10 +51,10 @@ export const TopNavigation: Component = () => {
                         const next = themes[(currentIndex + 1) % themes.length];
                         updateVisitor(prev => ({ ...prev, theme: next }));
                     }}
-                    class="text-xs font-mono text-text-muted hover:text-text-main transition-colors uppercase"
+                    class="px-4 py-2 rounded border border-accent bg-bg-secondary text-text-primary hover:bg-accent hover:text-bg-primary transition-colors font-mono uppercase"
                     title={`Current theme: ${config().theme}`}
                 >
-                    [{config().theme}]
+                    {config().theme}
                 </button>
             </div>
         </nav>

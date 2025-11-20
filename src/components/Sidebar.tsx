@@ -1,4 +1,4 @@
-import { Component } from "solid-js";
+import { Component, createSignal, onMount, Show } from "solid-js";
 import { panelState, PanelId } from "../state/panelState";
 
 const SidebarItem: Component<{ id: PanelId; label: string; icon: string }> = (props) => {
@@ -20,10 +20,40 @@ const SidebarItem: Component<{ id: PanelId; label: string; icon: string }> = (pr
 };
 
 export const Sidebar: Component = () => {
+    const [session, setSession] = createSignal<any>(null);
+
+    // Fetch session only on client mount
+    onMount(async () => {
+        try {
+            const response = await fetch("/api/auth/session");
+            if (response.ok) {
+                const data = await response.json();
+                setSession(data);
+            }
+        } catch (error) {
+            console.error('[SIDEBAR] Session fetch error:', error);
+        }
+    });
+
     return (
         <aside class={`w-20 h-full bg-background flex flex-col items-center py-4 z-10 ${panelState.sidebarPosition() === 'left' ? 'border-r border-border' : 'border-l border-border'
             }`}>
-            <div class="mb-8 text-accent font-bold text-xl">T/A</div>
+            <div class="mb-8 flex items-center justify-center">
+                <Show
+                    when={session()?.user?.image}
+                    fallback={
+                        <div class="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-bg-primary font-bold text-xl">
+                            {session()?.user?.name?.[0]?.toUpperCase() || "T/A"}
+                        </div>
+                    }
+                >
+                    <img
+                        src={session()!.user!.image!}
+                        alt="Profile"
+                        class="w-12 h-12 rounded-full border-2 border-accent"
+                    />
+                </Show>
+            </div>
 
             <nav class="flex-1 w-full flex flex-col gap-2">
                 <SidebarItem id="about" label="About" icon="user" />

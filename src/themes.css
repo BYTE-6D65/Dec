@@ -216,52 +216,52 @@
 
 /* --- Theme: White (Light Mode) --- */
 .theme-white {
-    /* Backgrounds - Warm, soft tones instead of harsh white */
-    --bg-0: #f8f7f4;
-    /* Warm off-white */
-    --bg-1: #f0ede7;
-    /* Soft beige */
-    --bg-2: #e8e4dc;
-    /* Light warm gray */
+    /* Backgrounds - Soft warm grays, not pure white */
+    --bg-0: #ddd9d4;
+    /* Medium warm gray - main background */
+    --bg-1: #f5f4f2;
+    /* Soft warm off-white - contrast cards */
+    --bg-2: #eae8e5;
+    /* Light warm gray - tertiary */
 
-    /* Text - Softer blacks and grays */
-    --text-hi: #2d2a26;
-    /* Warm dark gray instead of pure black */
-    --text-md: #5a5550;
-    /* Medium warm gray */
-    --text-lo: #8a857f;
-    /* Light warm gray */
-    --text-invert: #f8f7f4;
+    /* Text - Much darker for readability */
+    --text-hi: #1a1816;
+    /* Almost black, warm tone */
+    --text-md: #3d3935;
+    /* Dark gray */
+    --text-lo: #6b6762;
+    /* Medium gray */
+    --text-invert: #f5f4f2;
 
-    /* Borders - Subtle warm tones */
-    --border: #ddd9d1;
-    /* Soft warm border */
-    --border-strong: #c9c4bc;
-    /* Stronger warm border */
-    --border-accent: #6b5d4f;
-    /* Warm brown accent */
+    /* Borders - Clear but not harsh */
+    --border: #c9c5c0;
+    /* Medium border */
+    --border-strong: #a8a39e;
+    /* Strong border */
+    --border-accent: #4a7c59;
+    /* Forest green accent */
 
-    /* Accents - Warm brown/taupe instead of harsh black */
-    --accent: #6b5d4f;
-    /* Warm brown */
-    --accent-muted: #8a7d6f;
-    /* Lighter warm brown */
-    --accent-bg: rgba(107, 93, 79, 0.08);
-    --accent-glow: 0 0 10px rgba(107, 93, 79, 0.15);
+    /* Accents - Forest green for better visibility */
+    --accent: #4a7c59;
+    /* Forest green */
+    --accent-muted: #6b9976;
+    /* Lighter forest green */
+    --accent-bg: rgba(74, 124, 89, 0.1);
+    --accent-glow: 0 0 10px rgba(74, 124, 89, 0.2);
 
     /* States */
-    --hover: rgba(107, 93, 79, 0.06);
-    --active: rgba(107, 93, 79, 0.12);
-    --focus: #6b5d4f;
-    --disabled: #c9c4bc;
+    --hover: rgba(74, 124, 89, 0.08);
+    --active: rgba(74, 124, 89, 0.15);
+    --focus: #4a7c59;
+    --disabled: #c9c5c0;
 
     /* Selection */
-    --selection-bg: rgba(107, 93, 79, 0.15);
-    --selection-border: #6b5d4f;
+    --selection-bg: rgba(74, 124, 89, 0.2);
+    --selection-border: #4a7c59;
 
     /* Code */
-    --code-bg: #f0ede7;
-    --code-border: #ddd9d1;
-    --code-highlight: #b8860b;
-    /* Dark goldenrod for code highlights */
+    --code-bg: #eae8e5;
+    --code-border: #c9c5c0;
+    --code-highlight: #996b00;
+    /* Amber for code highlights */
 }
