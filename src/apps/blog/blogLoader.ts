@@ -1,4 +1,7 @@
 import { cache } from "@solidjs/router";
+import type { blogPosts } from "~/db/schema";
+
+type DbBlogPost = typeof blogPosts.$inferSelect;
 
 export interface BlogPost {
     id: string;
@@ -18,11 +21,10 @@ export const getBlogPosts = cache(async () => {
     const { remark } = await import("remark");
     const html = (await import("remark-html")).default;
 
-    const dbPosts = await getAllPosts(true);
-    // const dbPosts: any[] = []; // Temporarily disabled DB
+    const dbPosts: DbBlogPost[] = await getAllPosts(true);
 
     const posts: BlogPost[] = await Promise.all(
-        dbPosts.map(async (post: any) => {
+        dbPosts.map(async (post) => {
             // Render markdown to HTML on the fly
             // In a real app, we might cache this or store it in the DB
             const processedContent = await remark()

@@ -1,10 +1,11 @@
+import { type APIEvent } from "@solidjs/start/server";
 import { json } from "@solidjs/router";
 import { getSession } from "@auth/solid-start";
 import { db } from "~/db/client";
 import { linkedAccounts } from "~/db/schema";
 import { eq, and } from "drizzle-orm";
 
-export async function GET(event: any) {
+export async function GET(event: APIEvent) {
     try {
         // Get current session
         const session = await getSession(event.request, {

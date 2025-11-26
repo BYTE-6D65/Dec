@@ -1,6 +1,8 @@
-import { Show, createSignal, onMount } from "solid-js";
+import { Show, createSignal, onMount, createEffect } from "solid-js";
 import { A } from "@solidjs/router";
 import { isServer } from "solid-js/web";
+import { loadPreferencesFromAPI } from "~/state/configStore";
+import { loadPanelPreferencesFromAPI } from "~/state/panelState";
 
 export function UserProfile() {
     const [session, setSession] = createSignal<any>(null);
@@ -24,6 +26,14 @@ export function UserProfile() {
             const data = await response.json();
             console.log('[CLIENT] Session data:', JSON.stringify(data, null, 2));
             setSession(data);
+
+            // Load user preferences from API if signed in
+            if (data?.user) {
+                console.log('[CLIENT] Loading user preferences from API');
+                await loadPreferencesFromAPI();
+                await loadPanelPreferencesFromAPI();
+            }
+
             setLoading(false);
         } catch (error) {
             console.error('[CLIENT] Session fetch error:', error);

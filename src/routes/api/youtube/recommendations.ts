@@ -1,10 +1,11 @@
+import { type APIEvent } from "@solidjs/start/server";
 import { json } from "@solidjs/router";
 import { getSession } from "@auth/solid-start";
 import { db } from "~/db/client";
 import { linkedAccounts } from "~/db/schema";
 import { eq, and } from "drizzle-orm";
 
-export async function GET(event: any) {
+export async function GET(event: APIEvent) {
     try {
         // Get current session
         const session = await getSession(event.request, {
@@ -61,7 +62,7 @@ export async function GET(event: any) {
         // Transform YouTube API response to our format
         const recommendations = data.items?.map((item: any) => {
             const videoId = item.contentDetails?.upload?.videoId ||
-                           item.contentDetails?.playlistItem?.resourceId?.videoId;
+                item.contentDetails?.playlistItem?.resourceId?.videoId;
 
             if (!videoId) return null;
 
@@ -71,7 +72,7 @@ export async function GET(event: any) {
                 type: 'youtube',
                 url: `https://www.youtube.com/embed/${videoId}`,
                 thumbnail: item.snippet?.thumbnails?.medium?.url ||
-                          `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
+                    `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
                 channelTitle: item.snippet?.channelTitle,
             };
         }).filter(Boolean) || [];

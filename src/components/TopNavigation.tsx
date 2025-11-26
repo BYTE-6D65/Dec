@@ -1,18 +1,8 @@
 import { Component, For } from "solid-js";
-import { panelState, PanelId } from "../state/panelState";
+import { panelState } from "../state/panelState";
 import { useConfig } from "~/state/configStore";
 import { UserProfile } from "~/components/UserProfile";
-
-const PANELS: { id: PanelId; label: string }[] = [
-    { id: 'about', label: 'About' },
-    { id: 'blog', label: 'Blog' },
-    { id: 'edit', label: 'Edit' },
-
-    { id: 'media', label: 'Media' },
-    { id: 'contact', label: 'Contact' },
-    { id: 'terminal', label: 'Terminal' },
-    { id: 'projects', label: 'Projects' },
-];
+import { NAVIGATION_PANELS } from "~/config/navigation";
 
 export const TopNavigation: Component = () => {
     const { config, updateVisitor } = useConfig();
@@ -20,7 +10,7 @@ export const TopNavigation: Component = () => {
         <nav class="h-12 bg-background border-b border-border flex items-center justify-between px-6 select-none shrink-0">
             <div class="flex items-center gap-2 text-sm font-mono overflow-x-auto no-scrollbar whitespace-nowrap">
                 <span class="text-accent font-bold">~/</span>
-                <For each={PANELS}>
+                <For each={NAVIGATION_PANELS}>
                     {(panel, index) => (
                         <>
                             <button
@@ -32,7 +22,7 @@ export const TopNavigation: Component = () => {
                             >
                                 {panel.label}
                             </button>
-                            {index() < PANELS.length - 1 && (
+                            {index() < NAVIGATION_PANELS.length - 1 && (
                                 <span class="text-border-strong">/</span>
                             )}
                         </>

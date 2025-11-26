@@ -8,9 +8,11 @@ interface LayoutProps {
 }
 
 export const Layout: Component<LayoutProps> = (props) => {
+    const sidePosition = () => panelState.sidebarPosition() || 'left'; // Fallback to left
+
     return (
         <div class="flex h-screen w-screen bg-background text-text-main overflow-hidden">
-            <Show when={panelState.sidebarPosition() === 'left'}>
+            <Show when={sidePosition() === 'left'}>
                 <Sidebar />
             </Show>
 
@@ -21,7 +23,7 @@ export const Layout: Component<LayoutProps> = (props) => {
                 </main>
             </div>
 
-            <Show when={panelState.sidebarPosition() === 'right'}>
+            <Show when={sidePosition() === 'right'}>
                 <Sidebar />
             </Show>
         </div>
